@@ -10,10 +10,13 @@ Our results show a clear increase in predictive power (reduction in rmse error o
 ---
 ## Key Plots
 ![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/Screenshot%202026-03-03%20at%2012.51.58.png)
+Bar + horizon summaries on external test data showing our quantum/photonic hybrid beats the classical comparator on RMSE and MAE in 2/3 random seeds and on average, with the horizon plot indicating the win is driven mainly by stronger gains at longer horizons.
 
 ![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/02_single_seed_horizon_rmse_seed_2024.png)
+The horizon-by-horizon curves show the GRU+photonic memory has lower RMSE than GRU alone for horizons 2–6 (especially 4–6), and the lower panel’s edge bars quantify exactly how much the hybrid improves each horizon.
 
 ![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/04_advantage_ratio.png)
+A hardware-proxy comparison against Li et al. (2025) plotting RMSE_paper / RMSE_native under photonic-loss and 2q-gate-error sweeps, where the key takeaway is the ratio stays >1 and grows strongly with two-qubit error, supporting the claim that photonic-native, low-depth operations degrade more gracefully under noise.
 ---
 ## Motivation
 
