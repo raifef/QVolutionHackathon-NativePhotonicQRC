@@ -3,7 +3,7 @@
 
 We have produced a hybrid native photonic time-series forecast with a classical GRU backbone to learn the low frequency structure of the swaption surface with a photonic quantum resevoir to supply nonlinear features with a fading memory, used to correct the GRU backbone via a residual head. 
 
-The key novelty to this approach is the photonic-native quantum resevoir which is of low circuit depth and utilises native photonic gates such that it can provide immediate utility with current photonic NISQ systems which are too noisy for universal computation.
+The key novelty to this approach is the photonic-native quantum resevoir which is of low circuit depth and utilises native photonic gates such that it can provide immediate utility with current photonic NISQ systems which are too noisy for universal computation. Despite the significantly lower circuit depth than other QRC implementations for time-series data (Li, Qingyu, et al, 2025), indicative of lower quantum error rates when run at scale on real quantum hardware, we find more accurate forecasting for lower (noisy) quantum computational cost.
 
 Our results show a clear increase in predictive power (reduction in rmse error on test data for a 6 day horizon) over classical methods, while providing better error scaling with noise than other QRC implementations, directly compared against that in Li, Qingyu, et al. "Quantum reservoir computing for realized volatility forecasting." arXiv preprint arXiv:2505.13933 (2025). Full wall-time analyses and runs on real quantum hardware were not able to be completed due to time constraints but would be necessary to truly show the computational advantage over classical methods and error-scaling advantage over similar quantum implementations
 
