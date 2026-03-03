@@ -5,6 +5,11 @@ We have produced a hybrid native photonic time-series forecast with a classical 
 
 The key novelty to this approach is the photonic-native quantum resevoir which is of low circuit depth and utilises native photonic gates such that it can provide immediate utility with current photonic NISQ systems which are too noisy for universal computation.
 
+---
+## Key Plots
+
+---
+
 ### Key references (where the ideas come from)
 
 - *R. Di Bartolo et al.*, **“Time-series forecasting with multiphoton quantum states and integrated photonics”**, arXiv:2512.02928 (2025).  
@@ -29,46 +34,6 @@ High-level dataflow:
 
 
 Where `α_h` is a **per-horizon gate** (often crucial in practice): it lets the model use strong correction on short horizons while suppressing harmful long-horizon residual corrections.
-
----
-
-## Photonic encoding (what the “photonic memory” computes)
-
-### 1) Encode classical inputs into photonic circuit parameters
-We map the current input vector `x_t` into a set of circuit phases:
-
-- `θ_in(t) = E(x_t)` where `E(·)` is a simple encoding map (typically linear + scaling + wrap/clamp into `[0, 2π)`).
-- Practically, the encoded phases drive a reconfigurable interferometer / phase shifters.
-
-This is the “temporal photonic encoding” / “phase modulation” concept: the time-series drives the photonic device *through its phases*.
-
-### 2) Fixed interferometer + multiphoton feature readout
-We propagate a (simulated) multiphoton input state through a fixed linear-optical network `U` and extract coarse-grained measurement features:
-
-- single-click / marginal stats (if used)
-- **two-photon coincidence features** (commonly the most informative and stable in our implementation)
-
-We denote the extracted feature vector as:
-
-- `φ_t = Φ(U, θ(t))`
-
-where `φ_t` is a high-dimensional nonlinear embedding of the current input.
-
-### 3) Measurement-conditioned feedback = “photonic memory”
-To turn a feedforward photonic embedding into a **recurrent reservoir**, we add a feedback update that uses the previous reservoir output/state:
-
-One convenient abstraction consistent with our implementation:
-
-- Maintain an internal reservoir state `r_t` (or equivalently a subset of feedback phases).
-- Update it using a leaky integration + feedback strength:
-
-
-- `β` controls the fading-memory timescale (“leak rate”).
-- `fb_strength` controls how strongly the previous state perturbs the next circuit configuration.
-- `W_fb` is a fixed (often random) projection selecting a *budgeted subset* of phases to update.
-- `g(·)` is a simple nonlinearity / clipping to keep the feedback stable.
-
-**Intuition:** the circuit’s configuration at `t+1` depends on what it “saw” at `t`, creating recurrence and temporal feature mixing *without backprop training the photonic internals*.
 
 ---
 
