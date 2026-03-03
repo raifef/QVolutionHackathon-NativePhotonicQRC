@@ -9,6 +9,15 @@ The key novelty to this approach is the photonic-native quantum resevoir which i
 ## Key Plots
 
 ---
+## Motivation
+
+Modeling of full temporal volatility surfaces is not feasible on current NISQ quantum systems due to error propagation with circuit scaling, which scales with feature dimension.
+
+We solve this problem by
+
+All results at this stage are currently run purely as local simulation with added shot noise but otherwise idealistic quantum circuits, due to time and quantum budget constraints in this hackathon preventing full runs on real quantum hardware.
+
+---
 
 ### Key references (where the ideas come from)
 
@@ -31,9 +40,7 @@ At each time step `t` (or each observation index), we maintain:
 - `ŷ_t,h`: prediction for horizon `h` 
 
 High-level dataflow:
-
-
-Where `α_h` is a **per-horizon gate** (often crucial in practice): it lets the model use strong correction on short horizons while suppressing harmful long-horizon residual corrections.
+`α_h` is a **per-horizon gate** which lets the model use strong correction on short horizons while suppressing harmful long-horizon residual corrections.
 
 ---
 
