@@ -8,6 +8,8 @@ The key novelty to this approach is the photonic-native quantum resevoir which i
 ---
 ## Key Plots
 ![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/Screenshot%202026-03-03%20at%2012.51.58.png)
+
+![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/02_single_seed_horizon_rmse_seed_2024.png)
 ---
 ## Motivation
 
