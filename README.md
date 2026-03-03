@@ -17,6 +17,7 @@ The horizon-by-horizon curves show the GRU+photonic memory has lower RMSE than G
 
 ![alt text](https://github.com/raifef/QVolutionHackathon-NativePhotonicQRC/blob/main/images/04_advantage_ratio.png)
 A hardware-proxy comparison against Li et al. (2025) plotting RMSE_paper / RMSE_native under photonic-loss and 2q-gate-error sweeps, where the key takeaway is the ratio stays >1 and grows strongly with two-qubit error, supporting the claim that photonic-native, low-depth operations degrade more gracefully under noise.
+
 ---
 ## Motivation
 
