@@ -74,7 +74,7 @@ This is cheap and stable
 ## Novelty
 - **Photonic memory as a modular drop-in:** we treat a measurement-feedback photonic quantum reservoir as an explicit *memory module* that augments a classical recurrent model.
 - **Recurrence without training the quantum block:** feedback introduces memory/temporal processing while keeping the photonic part essentially “fixed + programmable”, avoiding heavy gradient-based training through a quantum simulator.
-- **Residualization + gating:** the photonic block only needs to explain what the GRU misses, and the gate `α_h` prevents long-horizon degradation—this is often the difference between “quantum hurts” and “quantum helps”.
+- **Residualization + gating:** the photonic block only needs to explain what the GRU misses and the gate `α_h` prevents long-horizon degradation
 
 
 
