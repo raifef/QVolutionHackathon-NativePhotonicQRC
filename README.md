@@ -42,11 +42,11 @@ All results at this stage are currently run purely as local simulation with adde
 At each time step `t` (or each observation index), we maintain:
 
 - `x_t`: classical input features (e.g., PCA factors of the vol surface, micro-features, calendar features)
-- `r_t`: **photonic memory state**, produced by a photonic feature map with **feedback**
+- `r_t`: photonic memory state, produced by a photonic feature map with feedback
 - `ŷ_t,h`: prediction for horizon `h` 
 
 High-level dataflow:
-`α_h` is a **per-horizon gate** which lets the model use strong correction on short horizons while suppressing harmful long-horizon residual corrections.
+`α_h` is a per-horizon gate which lets the model use strong correction on short horizons while suppressing harmful long-horizon residual corrections.
 
 ---
 
@@ -66,7 +66,7 @@ This is cheap and stable
 2. **Freeze GRU**, compute residuals `e(t, h)` on train.
 3. **Generate photonic memory states** `r_t` by running the photonic feature map with feedback through the sequence.
 4. **Fit ridge regression** readouts `W_out(h)` to predict `e(t, h)` from `r_t`.
-5. **Tune** hyperparameters `fb_strength`, ridge `λ`, leak `β`, and **per-horizon gates** `α_h` on validation.
+5. **Tune** hyperparameters `fb_strength`, ridge `λ`, leak `β`, and per-horizon gates `α_h` on validation.
 6. Fix hyperparameters and evaluate against classical models on test.
 
 ---
