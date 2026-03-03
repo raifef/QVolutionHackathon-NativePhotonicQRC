@@ -5,7 +5,7 @@ We have produced a hybrid native photonic time-series forecast with a classical 
 
 The key novelty to this approach is the photonic-native quantum resevoir which is of low circuit depth and utilises native photonic gates such that it can provide immediate utility with current photonic NISQ systems which are too noisy for universal computation. Despite the significantly lower circuit depth than other QRC implementations for time-series data (Li, Qingyu, et al, 2025), indicative of lower quantum error rates when run at scale on real quantum hardware, we find more accurate forecasting for lower (noisy) quantum computational cost.
 
-Our results show a clear increase in predictive power (reduction in rmse error on test data for a 6 day horizon) over classical methods, while providing better error scaling with noise than other QRC implementations, directly compared against that in Li, Qingyu, et al. "Quantum reservoir computing for realized volatility forecasting." arXiv preprint arXiv:2505.13933 (2025). Full wall-time analyses and runs on real quantum hardware were not able to be completed due to time constraints but would be necessary to truly show the computational advantage over classical methods and error-scaling advantage over similar quantum implementations
+Our results show a clear increase in predictive power (reduction in rmse error on test data for a 6 day horizon) over classical methods, while providing better error scaling with noise than other QRC implementations, directly compared against that in Li, Qingyu, et al. "Quantum reservoir computing for realized volatility forecasting." arXiv preprint arXiv:2505.13933 (2025). Full wall-time analyses and runs on real quantum hardware were not able to be completed due to time constraints but would be necessary to truly show the computational advantage over classical methods and error-scaling advantage over similar quantum implementations, however are results are indicative of better error scaling due to lower gate count and lower forecasting error.
 
 ---
 ## Key Plots
@@ -19,7 +19,7 @@ Our results show a clear increase in predictive power (reduction in rmse error o
 
 Modeling of full temporal volatility surfaces is not feasible on current NISQ quantum systems due to error propagation with circuit scaling, which scales with feature dimension.
 
-We solve this problem by
+We solve this problem by implementing a hybrid algorithm. Classical GRU is used to learn the low-frequency structure of the data, while our photonic resevoir computing provides nonlinearity on top of this, implemented with a fading memory via photonic feedback which provides lower forecasting errors. Our photonic resevoir is native to a photonic quantum computer, minimising the gate count and therefore total computational error on real quantum hardware.
 
 All results at this stage are currently run purely as local simulation with added shot noise but otherwise idealistic quantum circuits, due to time and quantum budget constraints in this hackathon preventing full runs on real quantum hardware.
 
