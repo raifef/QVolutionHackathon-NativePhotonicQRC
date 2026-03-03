@@ -25,6 +25,8 @@ Modeling of full temporal volatility surfaces is not feasible on current NISQ qu
 
 We solve this problem by implementing a hybrid algorithm. Classical GRU is used to learn the low-frequency structure of the data, while our photonic resevoir computing provides nonlinearity on top of this, implemented with a fading memory via photonic feedback which provides lower forecasting errors. Our photonic resevoir is native to a photonic quantum computer, minimising the gate count and therefore total computational error on real quantum hardware.
 
+Feedback creates photonic memory by taking a small summary of the measured reservoir features at time t and feeding it back to update a subset of the programmable phases before processing x_{t+1}. This makes the next photonic feature map depend on the recent past (a controllable fading memory set by fb_strength/leak), giving nonlinear temporal context without training the quantum block end-to-end.
+
 All results at this stage are currently run purely as local simulation with added shot noise but otherwise idealistic quantum circuits, due to time and quantum budget constraints in this hackathon preventing full runs on real quantum hardware.
 
 ---
